@@ -32,7 +32,7 @@ export default function Home() {
             className="flex items-center cursor-pointer hover:opacity-90 transition-opacity"
           >
             <Image
-              src="/payago-logo.png"
+              src="/payago-recruitment/payago-logo.png"
               alt="PayaGo Recruitment"
               width={1150}
               height={412}
@@ -181,7 +181,7 @@ export default function Home() {
           {/* Video Container */}
           <div className="relative glass-card rounded-3xl overflow-hidden shadow-2xl aspect-video group cursor-pointer">
             <Image
-              src="/workflow-process.png"
+              src="/payago-recruitment/workflow-process.png"
               alt="PayaGo workflow process"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -351,7 +351,7 @@ export default function Home() {
             <div className="relative rounded-3xl overflow-hidden glass-card p-2 group">
               <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
-                  src="/growth-stats.png"
+                  src="/payago-recruitment/growth-stats.png"
                   alt="Growth statistics"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -448,7 +448,7 @@ export default function Home() {
             <div className="relative rounded-3xl overflow-hidden glass-card p-2 order-1 lg:order-2 group">
               <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
                 <Image
-                  src="/team-collaboration.png"
+                  src="/payago-recruitment/team-collaboration.png"
                   alt="PayaGo team collaboration"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -505,7 +505,7 @@ export default function Home() {
             <div className="lg:col-span-1">
               <div className="mb-6">
                 <Image
-                  src="/payago-logo.png"
+                  src="/payago-recruitment/payago-logo.png"
                   alt="PayaGo Recruitment"
                   width={160}
                   height={36}
