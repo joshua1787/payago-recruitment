@@ -7,8 +7,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/payago-recruitment',
-  assetPrefix: '/payago-recruitment/',
   trailingSlash: true,
 }
 
