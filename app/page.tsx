@@ -1,13 +1,14 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Check, Users, Briefcase, Clock, TrendingUp, Play, Sparkles, Shield, Zap, Mail, Phone, ChevronDown } from 'lucide-react'
+import { ArrowRight, Check, Users, Briefcase, Clock, TrendingUp, Play, Sparkles, Shield, Zap, Mail, Phone, ChevronDown, Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0)
   const [isNavScrolled, setIsNavScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function Home() {
               alt="PayaGo Recruitment"
               width={1150}
               height={412}
-              className="h-56 w-auto"
+              className="h-10 md:h-14 w-auto object-contain"
               priority
             />
           </a>
@@ -63,7 +64,47 @@ export default function Home() {
             Get Started
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden p-2 text-foreground hover:bg-black/5 rounded-full transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 glass-nav border-t border-white/20 p-6 animate-fade-down shadow-xl">
+            <div className="flex flex-col gap-6">
+              {['How it works', 'Why PayaGo', 'Contact'].map((item, i) => (
+                <a
+                  key={i}
+                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  className="text-lg font-medium text-foreground/80 hover:text-foreground hover:translate-x-2 transition-all"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+              <Button
+                className="btn-premium w-full mt-2"
+                onClick={() => {
+                  window.open('https://docs.google.com/forms/d/e/1FAIpQLScXdeZC6zsf6xnbHYbx5q_98wPfJ31w43V-FZqUDoiU4nh70Q/viewform?usp=publish-editor', '_blank')
+                  setIsMobileMenuOpen(false)
+                }}
+              >
+                Get Started
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section with Animated Mesh Background */}
