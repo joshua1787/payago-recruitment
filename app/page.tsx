@@ -215,7 +215,7 @@ export default function Home() {
               See PayaGo <span className="gradient-text">in action</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              Watch how our intelligent matching system connects you with the right workers in real-time
+              Our intelligent matching system connects you with the right workers in real-time
             </p>
           </div>
 
@@ -228,17 +228,6 @@ export default function Home() {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
-            {/* Play Button */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative">
-                {/* Pulse ring */}
-                <div className="absolute inset-0 bg-[#6366F1]/30 rounded-full animate-ping" />
-                <div className="relative w-20 h-20 bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] rounded-full flex items-center justify-center shadow-lg shadow-[#6366F1]/40 group-hover:scale-110 transition-transform duration-300">
-                  <Play className="w-8 h-8 text-white fill-white ml-1" />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
