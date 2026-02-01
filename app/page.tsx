@@ -25,25 +25,25 @@ export default function Home() {
       {/* Premium Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isNavScrolled ? 'glass-nav py-4' : 'bg-transparent py-6'
         }`}>
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 flex items-start justify-between">
           {/* Logo */}
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="flex items-center cursor-pointer hover:opacity-90 transition-opacity"
+            className="flex items-center cursor-pointer hover:opacity-90 transition-opacity -ml-6 md:-ml-12 -mt-8"
           >
             <Image
               src="/payago-logo.png"
               alt="PayaGo Recruitment"
               width={1150}
               height={412}
-              className="h-28 md:h-40 w-auto object-contain"
+              className="h-32 md:h-52 w-auto object-contain object-left"
               priority
             />
           </a>
 
           {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-10 pt-8">
             {['How it works', 'Why PayaGo', 'Contact'].map((item, i) => (
               <a
                 key={i}
@@ -58,7 +58,7 @@ export default function Home() {
 
           {/* CTA Button */}
           <Button
-            className="hidden md:flex btn-premium text-sm px-6 py-2 h-auto"
+            className="hidden md:flex btn-premium text-sm px-6 py-2 h-auto mt-6"
             onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScXdeZC6zsf6xnbHYbx5q_98wPfJ31w43V-FZqUDoiU4nh70Q/viewform?usp=publish-editor', '_blank')}
           >
             Get Started
@@ -539,7 +539,7 @@ export default function Home() {
                   alt="PayaGo Recruitment"
                   width={160}
                   height={36}
-                  className="h-16 w-auto opacity-90"
+                  className="h-20 w-auto opacity-90"
                 />
               </div>
               <p className="text-muted-foreground leading-relaxed">
