@@ -37,7 +37,7 @@ export default function Home() {
               alt="PayaGo Recruitment"
               width={1150}
               height={412}
-              className="h-10 md:h-14 w-auto object-contain"
+              className="h-20 md:h-28 w-auto object-contain"
               priority
             />
           </a>
@@ -539,7 +539,7 @@ export default function Home() {
                   alt="PayaGo Recruitment"
                   width={160}
                   height={36}
-                  className="h-9 w-auto opacity-90"
+                  className="h-12 w-auto opacity-90"
                 />
               </div>
               <p className="text-muted-foreground leading-relaxed">
