@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Check, Users, Briefcase, Clock, TrendingUp, Play, Sparkles, Shield, Zap, Mail, Phone, ChevronDown, Menu, X } from 'lucide-react'
+import { ArrowRight, Check, Users, Briefcase, Clock, TrendingUp, Play, Sparkles, Shield, Zap, Mail, Phone, Menu, X, ChevronDown } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
@@ -142,7 +142,7 @@ export default function Home() {
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground border border-white/10">
               <Sparkles className="w-4 h-4 text-[#6366F1]" />
-              <span>Trusted by 500+ businesses nationwide</span>
+              <span>The #1 Platform for Warehouse Work</span>
             </span>
           </div>
 
@@ -150,7 +150,9 @@ export default function Home() {
           <div className="space-y-6 animate-fade-up delay-100">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
               <span className="block text-foreground">Connect with the</span>
-              <span className="block gradient-text mt-2">workforce you need</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#EC4899] animate-gradient-x bg-[length:200%_auto] mt-2">
+                workforce you need
+              </span>
             </h1>
           </div>
 
@@ -161,38 +163,37 @@ export default function Home() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-up delay-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-up delay-300">
             <Button
               size="lg"
-              className="btn-premium text-base px-8 h-14 group"
-              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScXdeZC6zsf6xnbHYbx5q_98wPfJ31w43V-FZqUDoiU4nh70Q/viewform?usp=publish-editor', '_blank')}
-            >
-              Request Workers
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              size="lg"
-              className="btn-outline-premium text-base px-8 h-14"
+              className="btn-premium text-base px-8 h-14 shadow-lg shadow-[#6366F1]/20 hover:shadow-[#6366F1]/40 transition-all duration-300 transform hover:-translate-y-1"
               onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScjk2f5D1FPD9vdq53x4zkgxzx0UzK8f9zZNcde6zIHQmF2kg/viewform?usp=publish-editor', '_blank')}
             >
-              Register as Worker
+              Apply Now
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
 
-          {/* Stats Row */}
-          <div className="pt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-up delay-400">
-            {[
-              { value: '10K+', label: 'Workers' },
-              { value: '500+', label: 'Companies' },
-              { value: '24/7', label: 'Support' },
-            ].map((stat, i) => (
-              <div key={i} className="text-center group">
-                <div className="text-3xl md:text-4xl font-bold gradient-text group-hover:scale-105 transition-transform">
-                  {stat.value}
+          {/* Benefits Row (Replacing Stats) */}
+          <div className="pt-16 pb-8 animate-fade-up delay-400">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              {[
+                { icon: TrendingUp, label: "Competitive Pay", desc: "Market leading rates" },
+                { icon: Zap, label: "Instant Start", desc: "No waiting" },
+                { icon: Shield, label: "Vetted Jobs", desc: "Safe warehouses" },
+                { icon: Users, label: "Community", desc: "Join thousands" }
+              ].map((benefit, i) => (
+                <div key={i} className="glass-card p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group hover:bg-white/5 transition-colors duration-300">
+                  <div className="p-2 rounded-full bg-[#6366F1]/10 text-[#6366F1] group-hover:scale-110 transition-transform">
+                    <benefit.icon className="w-5 h-5" />
+                  </div>
+                  <div className="text-center">
+                    <div className="font-semibold text-foreground">{benefit.label}</div>
+                    <div className="text-xs text-muted-foreground">{benefit.desc}</div>
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
@@ -248,54 +249,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
-            {/* For Businesses */}
-            <div className="space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] flex items-center justify-center">
-                  <Briefcase className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold">For Businesses</h3>
-              </div>
-
-              <div className="space-y-6">
-                {[
-                  { step: '01', title: 'Request Workers', desc: 'Tell us your staffing needs and timeline' },
-                  { step: '02', title: 'Instant Matching', desc: 'Get matched with vetted workers instantly' },
-                  { step: '03', title: 'Start Working', desc: 'Workers arrive ready to work immediately' },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-5 group">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-sm font-bold text-[#6366F1] group-hover:bg-[#6366F1]/20 transition-all">
-                        {item.step}
-                      </div>
-                    </div>
-                    <div className="pt-1">
-                      <h4 className="font-semibold text-lg mb-1 group-hover:text-[#6366F1] transition-colors">{item.title}</h4>
-                      <p className="text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <Button
-                className="btn-premium mt-4"
-                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScXdeZC6zsf6xnbHYbx5q_98wPfJ31w43V-FZqUDoiU4nh70Q/viewform?usp=publish-editor', '_blank')}
-              >
-                Request Workers
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </div>
-
+          <div className="max-w-xl mx-auto">
             {/* For Workers */}
             <div className="space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#A78BFA] flex items-center justify-center">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold">For Workers</h3>
-              </div>
-
               <div className="space-y-6">
                 {[
                   { step: '01', title: 'Create Profile', desc: 'Sign up and complete your worker profile' },
@@ -308,7 +264,7 @@ export default function Home() {
                         {item.step}
                       </div>
                     </div>
-                    <div className="pt-1">
+                    <div className="pt-1 text-left">
                       <h4 className="font-semibold text-lg mb-1 group-hover:text-[#8B5CF6] transition-colors">{item.title}</h4>
                       <p className="text-muted-foreground">{item.desc}</p>
                     </div>
@@ -316,62 +272,93 @@ export default function Home() {
                 ))}
               </div>
 
-              <Button
-                className="btn-outline-premium mt-4"
-                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScjk2f5D1FPD9vdq53x4zkgxzx0UzK8f9zZNcde6zIHQmF2kg/viewform?usp=publish-editor', '_blank')}
-              >
-                Register Now
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              <div className="flex justify-center">
+                <Button
+                  className="btn-premium mt-4"
+                  onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScjk2f5D1FPD9vdq53x4zkgxzx0UzK8f9zZNcde6zIHQmF2kg/viewform?usp=publish-editor', '_blank')}
+                >
+                  Apply
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why PayaGo Section */}
+      {/* Why PayaGo - Bento Grid Section */}
       <section id="why-payago" className="py-24 md:py-32 px-6 relative">
-        {/* Background elements */}
-        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#6366F1]/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#8B5CF6]/5 rounded-full blur-[80px]" />
-
-        <div className="max-w-6xl mx-auto relative">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground">
-              <Shield className="w-4 h-4 text-[#6366F1]" />
-              Trusted Platform
-            </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Why choose <span className="gradient-text">PayaGo</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              Built for reliability. Designed for growth.
+              We asked what matters most to workers. Here's what we built.
             </p>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Users, title: 'Vetted Workforce', desc: 'All workers verified and thoroughly screened for quality', gradient: 'from-[#6366F1] to-[#8B5CF6]' },
-              { icon: Clock, title: '24/7 Support', desc: 'Round-the-clock customer support always available', gradient: 'from-[#8B5CF6] to-[#A78BFA]' },
-              { icon: TrendingUp, title: 'Fair Pricing', desc: 'Transparent pricing with no hidden fees', gradient: 'from-[#6366F1] to-[#818CF8]' },
-              { icon: Check, title: 'Quality Assured', desc: 'Performance tracking and quality guarantees', gradient: 'from-[#7C3AED] to-[#8B5CF6]' },
-              { icon: Briefcase, title: 'Easy Integration', desc: 'Seamless onboarding for businesses', gradient: 'from-[#818CF8] to-[#6366F1]' },
-              { icon: Zap, title: 'Instant Matching', desc: 'Real-time worker matching technology', gradient: 'from-[#A78BFA] to-[#8B5CF6]' },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className="glass-card rounded-2xl p-8 card-hover group"
-              >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                  <feature.icon className="w-7 h-7 text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            {/* Feature 1 - Large Card */}
+            <div className="md:col-span-2 glass-card rounded-3xl p-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#6366F1]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-xl mb-3 group-hover:gradient-text transition-all">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">Instant Job Matches</h3>
+                  <p className="text-muted-foreground text-lg">Never wait for a callback. Our system matches you with available shifts the moment you apply.</p>
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Feature 2 */}
+            <div className="glass-card rounded-3xl p-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500">
+              <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#8B5CF6]/10 to-transparent" />
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#A78BFA] flex items-center justify-center mb-4">
+                  <TrendingUp className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Competitive Pay</h3>
+                  <p className="text-muted-foreground">We ensure you get the best market rates for every shift you take.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="glass-card rounded-3xl p-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#EC4899]/10 rounded-full blur-[40px]" />
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#EC4899] to-[#F472B6] flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Vetted Warehouses</h3>
+                  <p className="text-muted-foreground">We only work with safety-verified partners.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 4 - Large Card */}
+            <div className="md:col-span-2 glass-card rounded-3xl p-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500">
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#6366F1]/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2" />
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#818CF8] flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">Flexible Scheduling</h3>
+                  <p className="text-muted-foreground text-lg">Choose shifts that fit your life. Day, night, or weekends - you're in control.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+
 
       {/* Growth Stats Section */}
       <section className="py-24 md:py-32 px-6">
@@ -415,14 +402,12 @@ export default function Home() {
               </div>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                PayaGo has connected over 10,000 workers with 500+ businesses across major warehouses.
-                Our intelligent matching algorithm reduces hiring time by 80% while ensuring quality and reliability.
+                PayaGo connects qualified workers with businesses across major warehouses.
+                Our intelligent matching algorithm reduces hiring time while ensuring quality and reliability.
               </p>
 
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { value: '10,000+', label: 'vetted workers' },
-                  { value: '500+', label: 'partner businesses' },
                   { value: '80%', label: 'faster hiring' },
                   { value: '99.2%', label: 'job completion' },
                 ].map((stat, i) => (
@@ -490,6 +475,8 @@ export default function Home() {
         </div>
       </section>
 
+
+
       {/* CTA Section */}
       <section className="py-24 md:py-32 px-6 relative overflow-hidden">
         {/* Background */}
@@ -511,17 +498,10 @@ export default function Home() {
             <Button
               size="lg"
               className="btn-premium text-base px-10 h-14 group"
-              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScXdeZC6zsf6xnbHYbx5q_98wPfJ31w43V-FZqUDoiU4nh70Q/viewform?usp=publish-editor', '_blank')}
-            >
-              Request Workers Now
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              size="lg"
-              className="btn-outline-premium text-base px-10 h-14"
               onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScjk2f5D1FPD9vdq53x4zkgxzx0UzK8f9zZNcde6zIHQmF2kg/viewform?usp=publish-editor', '_blank')}
             >
-              Register as Worker
+              Apply Now
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
