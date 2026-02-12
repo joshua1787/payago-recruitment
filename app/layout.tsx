@@ -8,9 +8,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'PayaGo - Warehouse Staffing Solutions',
-  description: 'Connect with reliable warehouse workers. Request workers or register as a worker with PayaGo.',
-  generator: 'v0.app',
+  title: 'PayaGo Recruitment — Warehouse Staffing Agency | Night Shifts & Short-Notice Cover',
+  description: 'UK warehouse staffing agency specialising in night shifts, short-notice cover, and full PAYE compliance. One all-inclusive rate, no hidden fees. Get started with a free trial.',
   icons: {
     icon: '/payago-logo.png',
     apple: '/payago-logo.png',
